@@ -1,0 +1,36 @@
+require 'yaml'
+
+config = YAML.load(<<-EOF)
+
+box:
+    url: "ubuntu/zesty64"
+    check_update: false
+
+provider:
+    name: "zesty"
+    memory: 2048
+
+network:
+    forwarded_ports:
+      - guest: 80
+        host: 8080
+EOF
+
+Vagrant.configure("2") do |guest|
+    guest.vm.box = config["box"]["url"]
+    guest.vm.box_check_update = config["box"]["check_update"]    
+    forwarded_ports = config["network"]["forwarded_ports"]
+    forwarded_ports.each do |port|
+        guest.vm.network "forwarded_port", guest: port["guest"], host: port["host"]
+    end
+    guest.vm.provider "virtualbox" do |vb|
+        vb.name = config["provider"]["name"]
+        vb.memory = config["provider"]["memory"]
+        vb.customize [
+            "modifyvm", :id,
+            "--audio", "dsound",
+            "--audiocontroller", "ac97"
+        ]
+    end
+    guest.vm.provision "shell", path: "provision.sh"
+end
