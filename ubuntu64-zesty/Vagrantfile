@@ -14,6 +14,8 @@ network:
     forwarded_ports:
       - guest: 80
         host: 8080
+      - guest: 8000
+        host: 8000
 EOF
 
 Vagrant.configure("2") do |guest|
