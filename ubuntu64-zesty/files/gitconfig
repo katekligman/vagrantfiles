@@ -1,0 +1,11 @@
+[user]
+	email = kate@katekligman.com
+	name = Kate Kligman
+    
+[color]        
+    ui = false
+    branch = false
+    diff = false
+    interactive = false
+    status = false
+    log = false

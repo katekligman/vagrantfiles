@@ -3,7 +3,7 @@
 apt-get update
 
 # Install development packages
-apt-get install -y python3 python3-pip npm nodejs-legacy git
+apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file
 pip3 install virtualenvwrapper django djangorestframework markdown django-filter
 npm install -g grunt-cli bower
 
@@ -15,7 +15,27 @@ apt-get install -y linux-image-extra-`uname -r`
 cp /vagrant/files/profile-customizations.sh /etc/profile.d
 # Prevent flash from visual bell
 cp /vagrant/files/inputrc /etc/inputrc
+# Git
+cp /vagrant/files/gitconfig /home/ubuntu/.gitconfig
+chown ubuntu.ubuntu /home/ubuntu/.gitconfig
 
-# Install development environments
-apt-get install -y emacs25-nox, libespeak-ng-libespeak-dev
-cp /vagrant/files/en /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/gmw/en-US
+# Install espeak development environments
+apt-get install -y emacs25-nox espeak-ng espeak-ng-espeak libespeak-ng-libespeak-dev tcl8.6 tcl8.6-dev tclx
+cp /vagrant/files/voices/en /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/gmw/en-US
+cp /vagrant/files/voices/default /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/default
+
+# get emacs
+git clone https://github.com/katekligman/.emacs.d.git emacs
+mv emacs/linux /home/ubuntu/.emacs.d
+chown -R ubuntu.ubuntu /home/ubuntu/.emacs.d
+rm -rf emacs
+
+# get emacspeak
+git clone https://github.com/tvraman/emacspeak.git /home/ubuntu/.emacspeak
+ln -f /home/ubuntu/.emacspeak /home/ubuntu/.emacs.d/emacspeak
+cd /home/ubuntu/.emacspeak
+make
+cd servers/linux-espeak
+make
+chown -R ubuntu.ubuntu /home/ubuntu/.emacspeak
+
