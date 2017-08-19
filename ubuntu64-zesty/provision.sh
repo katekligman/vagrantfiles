@@ -12,5 +12,10 @@ apt-get install -y alsa alsa-utils
 apt-get install -y linux-image-extra-`uname -r`
 
 # Copy profile settings
-cp files/profile-customizations.sh /etc/profile.d
+cp /vagrant/files/profile-customizations.sh /etc/profile.d
+# Prevent flash from visual bell
+cp /vagrant/files/inputrc /etc/inputrc
 
+# Install development environments
+apt-get install -y emacs25-nox, libespeak-ng-libespeak-dev
+cp /vagrant/files/en /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/gmw/en-US

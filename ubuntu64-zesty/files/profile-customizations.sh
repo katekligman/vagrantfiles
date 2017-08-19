@@ -2,5 +2,7 @@ alias emacs='emacs --color=no'
 alias history='\history'
 alias ls='\ls -pc1'
 alias grep='grep --color=never'
+alias vim='emacsclient'
+alias vi='emacsclient'
 
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
