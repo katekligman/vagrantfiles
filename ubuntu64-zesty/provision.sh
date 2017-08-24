@@ -39,3 +39,6 @@ cd servers/linux-espeak
 make
 chown -R ubuntu.ubuntu /home/ubuntu/.emacspeak
 
+# screen -- disable the flash of the visual bell, etc
+cp /vagrant/files/screenrc /etc/screenrc
+chmod 644 /etc/screenrc
