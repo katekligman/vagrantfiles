@@ -27,15 +27,19 @@ cp /vagrant/files/voices/default /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices
 # get emacs
 git clone https://github.com/katekligman/.emacs.d.git emacs
 mv emacs/linux /home/ubuntu/.emacs.d
-chown -R ubuntu.ubuntu /home/ubuntu/.emacs.d
 rm -rf emacs
 
 # get emacspeak
 git clone https://github.com/tvraman/emacspeak.git /home/ubuntu/.emacspeak
-ln -f /home/ubuntu/.emacspeak /home/ubuntu/.emacs.d/emacspeak
+rmdir /home/ubuntu/.emacs.d/emacspeak
+ln -s /home/ubuntu/.emacspeak /home/ubuntu/.emacs.d/emacspeak
 cd /home/ubuntu/.emacspeak
 make
 cd servers/linux-espeak
 make
 chown -R ubuntu.ubuntu /home/ubuntu/.emacspeak
+chown -R ubuntu.ubuntu /home/ubuntu/.emacs.d
 
+# screen -- disable the flash of the visual bell, etc
+cp /vagrant/files/screenrc /etc/screenrc
+chmod 644 /etc/screenrc
