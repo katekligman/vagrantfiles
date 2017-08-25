@@ -10,11 +10,11 @@ phonemes en-us
 dictrules 3 6
 option reduce_t 1
 
-stressLength 140 120 190 170 0 0 255 300
-stressAmp  17 16  19 19  19 19  21 19
+#stressLength 140 120 190 170 0 0 255 300
+#stressAmp  17 16  19 19  19 19  21 19
 
 replace 03 I  i
 replace 03 I2 i
 
 # 31
-pitch 61 61 
+pitch 90 90 
