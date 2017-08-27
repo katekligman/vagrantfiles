@@ -3,13 +3,16 @@
 apt-get update
 
 # Install development packages
-apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file screen postgresql python-psycopg2 libpq-dev
+apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file screen postgresql python-psycopg2 libpq-dev dos2unix
 pip3 install virtualenvwrapper django djangorestframework markdown django-filter
 npm install -g grunt-cli bower
 
 # Install sound
 apt-get install -y alsa alsa-utils
 apt-get install -y linux-image-extra-`uname -r`
+
+# Repair any dos crlf checkout issues
+dos2unix /vagrant/files/*
 
 # Copy profile settings
 cp /vagrant/files/bashrc /home/ubuntu/.bashrc
