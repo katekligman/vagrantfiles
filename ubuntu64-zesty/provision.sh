@@ -26,8 +26,7 @@ chown ubuntu.ubuntu /home/ubuntu/.gitconfig
 
 # Install espeak development environments
 apt-get install -y emacs25-nox espeak-ng espeak-ng-espeak libespeak-ng-libespeak-dev tcl8.6 tcl8.6-dev tclx
-cp /vagrant/files/voices/en /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/gmw/en-US
-cp /vagrant/files/voices/default /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/default
+cp /vagrant/files/espeak.voice.default /usr/lib/x86_64-linux-gnu/espeak-ng-data/voices/default
 
 # get emacs
 git clone https://github.com/katekligman/.emacs.d.git emacs
