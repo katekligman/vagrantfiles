@@ -16,6 +16,8 @@ network:
         host: 8080
       - guest: 8000
         host: 8000
+      - guest: 5000
+        host: 5000
 EOF
 
 Vagrant.configure("2") do |guest|
