@@ -3,7 +3,7 @@
 apt-get update
 
 # Install development packages
-apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file screen
+apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file screen postgresql python-psycopg2 libpq-dev
 pip3 install virtualenvwrapper django djangorestframework markdown django-filter
 npm install -g grunt-cli bower
 
