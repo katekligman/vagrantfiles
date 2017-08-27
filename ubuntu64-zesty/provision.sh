@@ -15,10 +15,10 @@ apt-get install -y linux-image-extra-`uname -r`
 cp /vagrant/files/bashrc /home/ubuntu/.bashrc
 cp /vagrant/files/bash_aliases /home/ubuntu/.bash_aliases
 chown -R ubuntu.ubuntu /home/ubuntu
-cp /vagrant/files/bashrc /home/root/.bashrc
+cp /vagrant/files/bashrc /root/.bashrc
 
 # screen settings
-cp /vagrant/files/screenrc /home/root/.screenrc
+cp /vagrant/files/screenrc /root/.screenrc
 cp /vagrant/files/screenrc /etc/screenrc
 
 # Prevent flash from visual bell
