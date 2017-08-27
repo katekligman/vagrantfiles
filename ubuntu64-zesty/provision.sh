@@ -12,7 +12,12 @@ apt-get install -y alsa alsa-utils
 apt-get install -y linux-image-extra-`uname -r`
 
 # Copy profile settings
-cp /vagrant/files/profile-customizations.sh /etc/profile.d
+cp /vagrant/files/bashrc /home/ubuntu/.bashrc
+cp /vagrant/files/bash_aliases /home/ubuntu/.bash_aliases
+chown -R ubuntu.ubuntu /home/ubuntu
+cp /vagrant/files/bashrc /home/root/.bashrc
+cp /vagrant/files/bash_aliases /home/root/.bash_aliases
+
 # Prevent flash from visual bell
 cp /vagrant/files/inputrc /etc/inputrc
 # Git
