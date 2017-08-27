@@ -3,7 +3,7 @@
 apt-get update
 
 # Install development packages
-apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file
+apt-get install -y python3 python3-pip npm nodejs-legacy git apt-file screen
 pip3 install virtualenvwrapper django djangorestframework markdown django-filter
 npm install -g grunt-cli bower
 
@@ -16,7 +16,10 @@ cp /vagrant/files/bashrc /home/ubuntu/.bashrc
 cp /vagrant/files/bash_aliases /home/ubuntu/.bash_aliases
 chown -R ubuntu.ubuntu /home/ubuntu
 cp /vagrant/files/bashrc /home/root/.bashrc
-cp /vagrant/files/bash_aliases /home/root/.bash_aliases
+
+# screen settings
+cp /vagrant/files/screenrc /home/root/.screenrc
+cp /vagrant/files/screenrc /etc/screenrc
 
 # Prevent flash from visual bell
 cp /vagrant/files/inputrc /etc/inputrc
