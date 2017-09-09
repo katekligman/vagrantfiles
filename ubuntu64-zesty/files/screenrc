@@ -20,7 +20,7 @@
 # SCREEN SETTINGS
 # ------------------------------------------------------------------------------
 
-escape ^Bb
+escape ^AA
 startup_message off
 nethack on
 
